@@ -31,7 +31,6 @@ public class ShopStorage {
 
     public double calculateTotalCost(String bucket) {
        String customerBucket = filteredBucket(bucket);
-        if (bucket != null && !bucket.isEmpty()) {
             Map<String, Long> productsQuantity = Arrays.stream(customerBucket.split(""))
                     .map(productsBucket::get)
                     .collect(Collectors.groupingBy(ProductStorageImpl::getId,
@@ -39,11 +38,9 @@ public class ShopStorage {
             return productsQuantity.entrySet().stream()
                     .mapToDouble(p -> productsBucket.get(p.getKey()).getProductPrice((p.getValue())))
                     .sum();
-        } else {
-            return 0;
         }
     }
-}
+
 
 
 
