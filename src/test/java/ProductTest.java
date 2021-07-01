@@ -23,12 +23,12 @@ class ProductTest {
         double actual = testProduct.getProductPrice(3);
         assertEquals(expected, actual);
     }
+    
     @Test
     public void testMinusQuantity() {
         assertThrows(RuntimeException.class, () -> testProduct.getProductPrice(-2),
                 "Amount can't be less than 1");
     }
-
 
     @Test
     public void testCompareProducts() {
