@@ -6,8 +6,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
  class ExceptionTest {
 
     /*
-    тесты проведенные для негативного тестирования, должны падать с исключением и выводить
-    сообщение, указанное в методе
+   tests run for negative testing should fail with an exception and output
+     the message specified in the method
      */
     ShopStorage shopStorage = new ShopStorage();
 

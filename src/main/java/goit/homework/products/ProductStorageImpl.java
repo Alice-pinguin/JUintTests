@@ -1,26 +1,26 @@
 package goit.homework.products;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
-@NoArgsConstructor
+import lombok.Data;
+
 @AllArgsConstructor
 @Data
-@Builder
 
-public class ProductImpl implements ProductStorage<String> {
+public class ProductStorageImpl implements ProductStorage<String> {
 
     private String id;
     private double productPrice;
     private int salesProductQuantity;
     private double salesProductPrice;
 
-    public ProductImpl(String id, double productPrice) {
+    public ProductStorageImpl(String id, double productPrice) {
        this(id, productPrice,1, productPrice);
     }
     public double getProductPrice(long quantity) {
+        if (quantity < 1) {
+            throw new RuntimeException("Empty bucket, put something in");
+        }
         if (quantity < salesProductQuantity) {
             return quantity * productPrice;
         }
