@@ -4,8 +4,8 @@ import goit.homework.products.ProductStorageImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 
@@ -22,6 +22,11 @@ class ProductTest {
         double expected = 3.0;
         double actual = testProduct.getProductPrice(3);
         assertEquals(expected, actual);
+    }
+    @Test
+    public void testMinusQuantity() {
+        assertThrows(RuntimeException.class, () -> testProduct.getProductPrice(-2),
+                "Amount can't be less than 1");
     }
 
 
